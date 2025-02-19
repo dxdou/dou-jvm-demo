@@ -1,11 +1,16 @@
 package com.dou.demo;
 
+import com.dou.demo.classpath.Classpath;
+
+import java.io.IOException;
+import java.util.Arrays;
+
 /**
  * Created with IntelliJ IDEA.
  *
- * @Author: fanhengxue
+ * @Author: dxdou
  * @Date: 2025/02/18/19:52
- * @Description:-Xjre "C:\Program Files\Java\jdk1.8.0_202\jre" D:\Develop\code\study\dou-jvm-demo\dou-jvm-demo-01\target\test-classes\com\dou\demo\HelloWorld
+ * @Description:D:\Develop\code\study\dou-jvm-demo\dou-jvm-demo-01\target\test-classes\com\dou\demo\HelloWorld
  */
 public class Main {
     public static void main(String[] args) {
@@ -22,6 +27,18 @@ public class Main {
     }
 
     private static void startJVM(Cmd cmd) {
-        System.out.printf("classpath:%s class:%s args:%s\n", cmd.classpath, cmd.getMainClass(), cmd.getAppArgs());
+        Classpath classpath = new Classpath(null, cmd.getMainClass());
+        try {
+            byte[] classData = classpath.readClass(cmd.getMainClass());
+            for (byte b : classData) {
+                //16进制输出
+                System.out.print(String.format("%02x", b & 0xff) + " ");
+            }
+            System.out.println();
+            System.out.println("find class, data is " + Arrays.toString(classData));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
     }
 }
