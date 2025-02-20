@@ -12,6 +12,7 @@
 
     <modules>
         <module>dou-jvm-demo-01</module>
+        <module>dou-jvm-demo-02</module>
     </modules>
 
     <properties>

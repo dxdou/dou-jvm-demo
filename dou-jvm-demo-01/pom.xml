@@ -9,8 +9,9 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <groupId>org.example</groupId>
+    <groupId>com.dou</groupId>
     <artifactId>dou-jvm-demo-01</artifactId>
+    <description>find class</description>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
