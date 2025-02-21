@@ -14,6 +14,7 @@
         <module>dou-jvm-demo-01</module>
         <module>dou-jvm-demo-02</module>
         <module>dou-jvm-demo-03</module>
+        <module>dou-jvm-demo-04</module>
     </modules>
 
     <properties>
